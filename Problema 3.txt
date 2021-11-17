@@ -1,0 +1,51 @@
+/*
+En un comercial de venta de llantas de vehículos de la ciudad de Loja, se hace un descuento 
+del 10% si el cliente tiene pide un juego de llantas para un vehículo tipo "auto", 
+del 20% si el cliente pide un juego de llantas para un vehículo tipo "camioneta", 
+del 30% el cliente pide un juego de llantas para un vehículo tipo "bus". 
+Elaborar un solución que pida como datos de entrada 
+el tipo de vehículo y el valor del juego de llantas y el número de juegos de llantas para el vehículo. 
+Y luego calcule e imprima el subtotal por pagar y el total por pagar.
+*/
+
+1 Inicio
+2 vehiculo,	x(15)[{a-z}{A-Z}]
+3 valorjuego,	d[0,n]
+4 numerojuego, d[0,n]
+5 subtotal,	d[0,n]
+6 valortotal,	d[0,n]
+7 descuento1, --> 10
+8 descuento2, --> 20
+9 descuento3, --> 30
+10 porcentaje,	d[0,n]
+
+11 << "Ingrese el tipo de vehículo"
+12 >> vehiculo
+
+13 << "Ingrese el valor del juego de llantas"
+14 >> valorjuego
+
+15 << "Ingrese el número de juegos de llantas"
+16 >> numerojuego
+
+17 subtotal --> valorjuego * numerojuego
+
+18 Si vehiculo == "auto" OR vehiculo == "Auto" entonces
+19	porcentaje --> (subtotal*descuento1)/100
+20	valortotal --> subtotal + porcentaje
+21 De lo contrario
+
+22	Si vehiculo == "camioneta" OR vehiculo == "Camioneta" entonces
+23	 porcentaje --> (subtotal*descuento2)/100
+24	 valortotal --> subtotal + porcentaje
+25	De lo contrario
+
+26		Si vehiculo == "bus" OR vehiculo == "Bus" entonces
+27	 	 porcentaje --> (subtotal*descuento3)/100
+28	 	 valortotal --> subtotal + porcentaje
+29 Fin Si
+
+30 << "El subtotal a pagar es: " + subtotal
+31 << "El Valor Total a pagar es " + valortotal
+
+32 Fin
